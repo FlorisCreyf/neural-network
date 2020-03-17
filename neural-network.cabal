@@ -1,0 +1,76 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: d7460a8d84d517aa0d493eb4012589e79181fb010b7f2b5397c33c9c024cfbaa
+
+name:           neural-network
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/neural-network#readme>
+homepage:       https://github.com/floriscreyf/neural-network#readme
+bug-reports:    https://github.com/floriscreyf/neural-network/issues
+author:         Floris Creyf
+maintainer:     floris@pdx.edu
+copyright:      2020 Floris Creyf
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/floriscreyf/neural-network
+
+library
+  exposed-modules:
+      Neural
+      Sample
+      Vector
+  hs-source-dirs:
+      src
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , hspec
+    , random
+    , text
+  other-modules:
+      Paths_neural_network
+  default-language: Haskell2010
+
+executable neural-network-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_neural_network
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , hspec
+    , neural-network
+    , random
+    , text
+  default-language: Haskell2010
+
+test-suite neural-network-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_neural_network
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , hspec
+    , neural-network
+    , random
+    , text
+  default-language: Haskell2010
